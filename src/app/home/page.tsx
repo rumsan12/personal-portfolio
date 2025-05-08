@@ -12,8 +12,6 @@ const Home = () => {
         <div className='home-left'>
           <div className='image-wrapper'>
           <img src="/myphoto.webp" alt="My Profile" className="profile-image" />
-
-
           </div>
         </div>
 
