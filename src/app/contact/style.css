@@ -143,16 +143,17 @@ textarea {
   gap: 16px;
   color:white;
 }
-.social-icons a {
+.social-icons a{
   color: white;
   text-decoration: none;
 }
-.social-icons a:visited {
-  color: blue;
+.social-icons a:active{
+  color: red;
 }
-a:hover {
+.social-icons a:hover {
   color: gold; 
 }
+
 
 
 
