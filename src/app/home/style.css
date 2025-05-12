@@ -114,7 +114,6 @@
   
     .image-wrapper img {
       height: auto;
-      max-height: 300px; /* optional: limit height on small screens */
     }
   
     .home-right {
