@@ -19,17 +19,36 @@
     gap: 1rem;
     text-transform: uppercase;
     background-color: #2d2d2d;
-    color: white;   
+    color: white;  
+    align-items: center; 
 }
 
 .nav-links a{
   text-decoration: none;
   color: white;
   transition: color 0.3 ease;
+  position: relative;
+  padding-bottom: 5px;
+
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #f0c674;
+  transition: width 0.3s ease-in-out;
 }
 
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
 .nav-links a:hover{
-  color:#f0c674;
+  color:white;
+
 }
   .hamburger {
     display: none;
@@ -61,6 +80,26 @@
       border-top: 1px solid #333;  
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
+    .nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
   
     .nav-links.active {
       display: flex;

@@ -1,7 +1,9 @@
 'use client'; 
 import React, {useState} from 'react';
 import './style.css';
+import{usePathname} from 'next/navigation';
 const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
      <nav className="navbar">
@@ -11,10 +13,10 @@ const Navbar = () => {
       </div>
 
       <div className={`nav-links ${isOpen ? 'active' : ''}`} >
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/contact">Contact</a>
+        <a href="/" className={pathname === '/' ? 'active' : ''}>Home</a>
+        <a href="/about" className={pathname === '/about' ? 'active' : ''}>About</a>
+        <a href="/portfolio" className={pathname === '/portfolio' ? 'active' : ''}>Portfolio</a>
+        <a href="/contact" className={pathname === '/contact' ? 'active' : ''}>Contact</a>
       </div>
     </nav>
   );
