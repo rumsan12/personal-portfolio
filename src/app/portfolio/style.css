@@ -79,6 +79,8 @@
 
 /* Individual Card */
 .portfolio-card {
+  color: white;
+  text-decoration: none;
   background-color: transparent;
   max-width: 300px;
   min-width: 300px;

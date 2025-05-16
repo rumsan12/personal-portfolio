@@ -10,21 +10,25 @@ const Portfolio = () => {
       image: "/myphoto.webp",
       title: "portfolio 1",
       description: "This is description for project 1",
+      github: "https://github.com/Asal99/recipe-finder",
     },
     {
       image: "/myphoto.webp",
       title: "portfolio 2",
       description: "This is dispcription for project 2",
+      github: "https://github.com/Asal99/recipe-finder",
     },
     {
       image: "/myphoto.webp",
       title: "portfolio 3",
       description: "This is dispcription for project 2",
+      github: "https://github.com/Asal99/recipe-finder",
     },
     {
       image: "/myphoto.webp",
       title: "portfolio 4",
       description: "This is dispcription for project 2",
+      github: "https://github.com/Asal99/recipe-finder",
     },
   ];
 
@@ -50,11 +54,19 @@ const Portfolio = () => {
           <div className="portfolio-scroll-container" ref={portfolioRef}>
             <div className="portfolio-grid">
               {portfolioCard.map((item, index) => (
-                <div className="portfolio-card" key={index}>
-                  <img src={item.image} alt={item.title} />
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
+                <a
+                  href={item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="portfolio-card"
+                  key={index}
+                >
+                  <div className="portfolio-card">
+                    <img src={item.image} alt={item.title} />
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
