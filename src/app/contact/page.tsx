@@ -1,58 +1,67 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import "./style.css";
-import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import ContactFormFields from "../../components/ContactFormFields";
+import { formFields } from "../../utils/formConfig";
+import { sendEmail } from "../../utils/emailSender";
 
 const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [error, setError] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+      setError("Please fill all the fields.");
+    } else if (!form.email.includes("@")) {
+      setError("Please enter a valid email address.");
+    } else {
+      setError("");
+      try {
+        await sendEmail(form);
+        alert("Message sent successfully!");
+        setForm({ name: "", email: "", message: "" });
+      } catch (error) {
+        console.error("Email send failed:", error);
+        alert("Failed to send message. Please try again.");
+      }
+    }
+  };
+
   return (
-    <>
-      <div className="contact-card">
-        <h1 className="contact-title"> contact</h1>
-        <div className="title-underline"></div>
+    <div className="contact-card">
+      <h1 className="contact-title">Contact</h1>
+      <div className="title-underline"></div>
 
-        <a href="mailto:asalpoudel9@gmail.com" className="email-link">
-          Asalpoudel9@gmail.com
-        </a>
-        <p className="subtext">
-          Feel free to contact me with any inquires or questions!
-        </p>
+      <a href="mailto:asalpoudel9@gmail.com" className="email-link">
+        asalpoudel9@gmail.com
+      </a>
+      <p className="subtext">
+        Feel free to contact me with any inquiries or questions!
+      </p>
 
-        <form className="contact-form">
-          <div className="input-row">
-            <div className="input-group">
-              <label>Name</label>
-              <input type="text" placeholder="Your Name" />
-            </div>
-            <div className="input-group">
-              <label>Email Address</label>
-              <input type="email" placeholder="your@email.com" />
-            </div>
-          </div>
-          <div className="input-group">
-            <label>Message</label>
-            <textarea rows={2} placeholder="Type your message here..." />
-          </div>
+      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
 
-          <button type="submit" className="submit-btn">
-            Submit
-          </button>
-        </form>
-
-        <div className="social-icons">
-          <a href="https://www.facebook.com/asal.poudel.1/">
-            <FaFacebook />
-          </a>
-          <a href="https://www.instagram.com/asal_poudel/">
-            <FaInstagram />
-          </a>
-          <a href="https://www.github.com/asal99">
-            <FaGithub />
-          </a>
-          <a href="https://www.linkedin.com/in/asalpoudel/">
-            <FaLinkedin />
-          </a>
-        </div>
-      </div>
-    </>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <ContactFormFields
+          form={form}
+          formFields={formFields}
+          handleChange={handleChange}
+        />
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 
