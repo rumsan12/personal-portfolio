@@ -42,7 +42,6 @@ const Home = () => {
               >
                 Explore now
               </button>
-              <h1 className="play-btn">▶ Play Video</h1>
             </div>
           </div>
         </div>

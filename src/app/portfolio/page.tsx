@@ -1,6 +1,6 @@
 "use client";
 import "./style.css";
-import React, { use, useRef } from "react";
+import React, { useRef } from "react";
 
 const Portfolio = () => {
   const portfolioRef = useRef<HTMLDivElement>(null);
@@ -21,13 +21,13 @@ const Portfolio = () => {
     {
       image: "/myphoto.webp",
       title: "portfolio 3",
-      description: "This is dispcription for project 2",
+      description: "This is dispcription for project 3",
       github: "https://github.com/Asal99/recipe-finder",
     },
     {
       image: "/myphoto.webp",
       title: "portfolio 4",
-      description: "This is dispcription for project 2",
+      description: "This is dispcription for project 4",
       github: "https://github.com/Asal99/recipe-finder",
     },
   ];
@@ -40,6 +40,7 @@ const Portfolio = () => {
       });
     }
   };
+
   return (
     <>
       <div className="portfolio-section">
@@ -70,6 +71,7 @@ const Portfolio = () => {
               ))}
             </div>
           </div>
+
           <button className="scroll-btn" onClick={() => scroll("right")}>
             →
           </button>

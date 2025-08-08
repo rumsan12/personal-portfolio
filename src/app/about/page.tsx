@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Image from "next/image";
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const socialLinks = [
@@ -13,10 +14,10 @@ const About = () => {
   return (
     <>
       {/* main div */}
-      <div className="home-container">
+      <div className="home-container-about">
         {/* left div */}
-        <div className="home-left">
-          <div className="text-content">
+        <div className="home-left-about">
+          <div className="text-content-about">
             <p className="about">About Me</p>
             <p className="description">
               I’m a passionate Front-End Developer with a strong eye for design
@@ -43,7 +44,7 @@ const About = () => {
         </div>
         {/* right div */}
 
-        <div className="home-right">
+        <div className="home-right-about">
           <div className="image-wrapper">
             <img
               src="/myphoto.webp"
