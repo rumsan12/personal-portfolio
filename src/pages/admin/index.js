@@ -8,7 +8,7 @@ export default function Admin() {
     const res = await fetch("/api/blogs");
     const data = await res.json();
     setBlogs(data);
-  };
+  }; 
 
   useEffect(() => {
     fetchBlogs();
